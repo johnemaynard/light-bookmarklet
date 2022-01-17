@@ -20,6 +20,8 @@ javascript: (() => {
     { name: "Clear Blue Sky", kelvin: 20000, color: "rgba(64,156,255,1)" },
   ];
 
+  let selectedOption = null;
+
   const uninstall = () => {
     container.remove();
   };
@@ -47,29 +49,25 @@ javascript: (() => {
   toolbarWrapper.onclick = (e) => e.stopPropagation();
 
   const toolbar = document.createElement("div");
-  const s = toolbar.style;
-  s.fontSize = "13px";
-  s.boxShadow = "0 0 8px 0px rgba(0,0,0,0.18)";
-  s.padding = "4px";
-  s.display = "flex";
-  s.alignItems = "center";
-  s.backgroundColor = "rgba(255,255,255,0.41)";
-
-  let selectedOption = null;
+  toolbar.style.fontSize = "13px";
+  toolbar.style.boxShadow = "0 0 8px 0px rgba(0,0,0,0.18)";
+  toolbar.style.padding = "4px";
+  toolbar.style.display = "flex";
+  toolbar.style.alignItems = "center";
+  toolbar.style.backgroundColor = "rgba(255,255,255,0.41)";
 
   colors.forEach((color, i) => {
     const item = document.createElement("div");
-    const s = item.style;
-    s.flex = "1 1 auto";
-    s.color = "rgba(0,0,0,0.8)";
-    s.fontWeight = "500";
-    s.padding = "6px";
-    s.marginRight = "6px";
-    s.minHeight = "16px";
-    s.display = "flex";
-    s.alignItems = "flex-end";
-    s.backgroundColor = color.color;
-    s.transition = "font-size 0.1s";
+    item.style.flex = "1 1 auto";
+    item.style.color = "rgba(0,0,0,0.8)";
+    item.style.fontWeight = "500";
+    item.style.padding = "6px";
+    item.style.marginRight = "6px";
+    item.style.minHeight = "16px";
+    item.style.display = "flex";
+    item.style.alignItems = "flex-end";
+    item.style.backgroundColor = color.color;
+    item.style.transition = "font-size 0.1s";
     item.innerText = color.kelvin + "K";
 
     if (i === Math.floor(colors.length / 2)) {
@@ -81,6 +79,7 @@ javascript: (() => {
       e.target.style.fontSize = "17px";
       e.target.style.fontWeight = "bold";
     };
+
     item.onmouseleave = (e) => {
       if (e.target !== selectedOption) {
         e.target.style.cursor = "none";
@@ -88,6 +87,7 @@ javascript: (() => {
         e.target.style.fontWeight = "normal";
       }
     };
+
     item.onclick = (e) => {
       e.stopPropagation();
       toolbar.childNodes.forEach((c) => {
@@ -98,6 +98,7 @@ javascript: (() => {
           c.innerText = parts[1];
         }
       });
+
       e.target.style.fontWeight = "bold";
       e.target.style.fontSize = "17px";
       e.target.innerText = lightbulb + " " + e.target.innerText;
@@ -106,22 +107,22 @@ javascript: (() => {
       toolbarWrapper.style.backgroundColor = color.color;
       selectedOption = e.target;
     };
+
     toolbar.appendChild(item);
   });
 
   const msg = document.createElement("div");
   msg.innerText =
     pointUp + " Change your color / " + pointDown + " Click to close";
-  const mss = msg.style;
-  mss.fontWeight = "500";
-  mss.fontSize = "13px";
-  mss.color = "rgba(0,0,0,0.62)";
-  mss.marginTop = "24px";
-  mss.textAlign = "center";
-  mss.position = "relative";
-  mss.opacity = "0";
-  mss.top = "-50px";
-  mss.transition = "top 0.25s ease-out, opacity 0.25s ease-out";
+  msg.style.fontWeight = "500";
+  msg.style.fontSize = "13px";
+  msg.style.color = "rgba(0,0,0,0.62)";
+  msg.style.marginTop = "24px";
+  msg.style.textAlign = "center";
+  msg.style.position = "relative";
+  msg.style.opacity = "0";
+  msg.style.top = "-50px";
+  msg.style.transition = "top 0.25s ease-out, opacity 0.25s ease-out";
 
   toolbarWrapper.append(toolbar);
   container.appendChild(toolbarWrapper);
@@ -129,8 +130,8 @@ javascript: (() => {
   document.body.appendChild(container);
 
   setTimeout(() => {
-    mss.opacity = "1";
-    mss.top = "0";
+    msg.style.opacity = "1";
+    msg.style.top = "0";
   }, 200);
 
   selectedOption && selectedOption.click();
