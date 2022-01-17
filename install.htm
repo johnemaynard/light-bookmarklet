@@ -9,25 +9,37 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding-top: 24px;
+        padding-top: 32px;
       }
       .msg {
-        color: rgba(0, 0, 0, 0.6);
-        margin-bottom: 16px;
+        color: rgba(0, 0, 0, 0.96);
+        font-size: 32px;
+        margin-bottom: 32px;
       }
       .btn {
         color: black;
         display: inline-block;
         text-decoration: none;
-        padding: 8px 16px;
-        border-radius: 6px;
-        background-color: #eff0f3;
+        padding: 16px;
+        width: 150px;
+        text-align: center;
+        font-size: 16px;
+        border-radius: 8px;
+        background-color: white;
+        transition: box-shadow 0.3s;
+        box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+      }
+      .btn:hover {
+        box-shadow: 0px 3px 32px rgba(0, 0, 0, 0.21);
+      }
+      .btn:active {
+        background-color: #f2f2f2;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="msg">Drag &#128071; into your bookmark toolbar.</div>
+      <div class="msg">Drag &#128071; into your bookmarks toolbar.</div>
       <div>
         <a
           class="btn"
