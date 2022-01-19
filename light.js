@@ -1,12 +1,12 @@
 javascript: (() => {
-  const containerId = "make-me-pretty";
+  const containerId = "the-giver-of-light";
   if (document.getElementById(containerId)) {
     return;
   }
 
-  const lightbulb = "&#128161;";
-  const pointUp = "&#128070;";
-  const pointDown = "&#128071;";
+  const lightbulb = "💡";
+  const pointUp = "⬆";
+  const pointDown = "⬇";
 
   const colors = [
     { name: "Candle", kelvin: 1900, color: "rgba(255,147,41,1)" },
@@ -60,6 +60,7 @@ javascript: (() => {
     const item = document.createElement("div");
     item.style.flex = "1 1 auto";
     item.style.color = "rgba(0,0,0,0.8)";
+    item.style.whiteSpace = "nowrap";
     item.style.fontWeight = "500";
     item.style.padding = "6px";
     item.style.marginRight = "6px";
@@ -89,16 +90,7 @@ javascript: (() => {
     };
 
     item.onclick = (e) => {
-      e.stopPropagation();
-      toolbar.childNodes.forEach((c) => {
-        c.style.fontWeight = "normal";
-        c.style.fontSize = "13px";
-        const parts = c.innerText.split(" ");
-        if (parts.length > 1) {
-          c.innerText = parts[1];
-        }
-      });
-
+      e.stopPropagation();    
       e.target.style.fontWeight = "bold";
       e.target.style.fontSize = "17px";
       e.target.innerText = lightbulb + " " + e.target.innerText;
@@ -106,6 +98,17 @@ javascript: (() => {
       container.style.backgroundColor = color.color;
       toolbarWrapper.style.backgroundColor = color.color;
       selectedOption = e.target;
+
+      toolbar.childNodes.forEach((c) => {
+        if (c !== selectedOption) {
+          c.style.fontWeight = "normal";
+          c.style.fontSize = "13px";
+          const parts = c.innerText.split(" ");
+          if (parts.length > 1) {
+            c.innerText = parts[1];
+          }
+        }
+      });
     };
 
     toolbar.appendChild(item);
@@ -114,9 +117,9 @@ javascript: (() => {
   const msg = document.createElement("div");
   msg.innerText =
     pointUp + " Change your color / " + pointDown + " Click to close";
-  msg.style.fontWeight = "500";
+  msg.style.fontWeight = "600";
   msg.style.fontSize = "13px";
-  msg.style.color = "rgba(0,0,0,0.62)";
+  msg.style.color = "rgba(0,0,0,0.6)";
   msg.style.marginTop = "24px";
   msg.style.textAlign = "center";
   msg.style.position = "relative";
