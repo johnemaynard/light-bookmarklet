@@ -1,2 +1,3 @@
-# light-bookmarklet
-<a href="https://www.google.com">💡Light</a>
+# 💡 Light
+Simple bookmarklet to quickly turn your display into a light source for video chats.
+
