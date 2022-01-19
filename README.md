@@ -1,2 +1,2 @@
 # light-bookmarklet
-<a href="www.google.com">💡</a>
+<a href="http://www.google.com">💡</a>
