@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-uglifyjs light.js > light.min.js
-pbcopy < light.min.js
+uglifyjs vanity.js > vanity.min.js
+pbcopy < vanity.min.js
 
 echo "✅ Build successful. Minified code copied to clipboard."
