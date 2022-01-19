@@ -1,2 +1,2 @@
 # light-bookmarklet
-<a href="http://www.google.com">💡</a>
+<a href="javascript:(javascript: (() => {alert('hi'})();">💡Light</a>
