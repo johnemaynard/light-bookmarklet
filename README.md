@@ -10,4 +10,4 @@ Simple bookmarklet to turn your browser into a light source. This can help you l
 * Is fat free & gluten free
 
 ## Install
-Open `install.htm` in your browser and follow the directions.
+Download or Clone, then open `install.htm` in your browser and follow the directions.
